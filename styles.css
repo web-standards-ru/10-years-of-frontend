@@ -1,0 +1,129 @@
+HTML {
+  font-size: 16px;
+
+  --cols: 5;
+  --rows: 2;
+  --space: .5rem;
+  --tiny-space: .25rem;
+
+  --gray: #DDD;
+
+  --col-1: tomato;
+  --col-2: darkorange;
+  --col-3: gold;
+  --col-4: yellowgreen;
+  --col-5: lightseagreen;
+  --col-6: teal;
+}
+
+BODY {
+  margin: 0;
+  padding: 2rem;
+  font: 1rem/1.5 Trebuchet MS, Arial, sans-serif;
+  color: #000;
+}
+
+H1, H2, H3, H4 {
+  margin: 0;
+  font-weight: normal;
+}
+
+.header {
+  text-align: center;
+}
+
+.nav {
+  margin: 1rem 0
+}
+.nav__control {
+  padding: var(--space);
+  background: #333;
+  border: none;
+  border-radius: 5px;
+  color: #FFF;
+  font: inherit;
+  text-decoration: none;
+}
+
+.nav__control--current {
+  background: var(--col-6);
+}
+
+.main {
+  position: relative;
+}
+
+.section {}
+
+.section--hidden {
+  display: none;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-row-gap: var(--space);
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background: linear-gradient(to right, var(--gray) 1px, transparent 0);
+  background-size: calc(100% / var(--cols)) 100%;
+  border: 1px solid var(--gray);
+  /*outline: 1px solid green;*/
+}
+
+.list--years {
+  border-left: 0;
+}
+
+.list--data {
+  padding: var(--space) 0;
+  grid-template-rows: repeat(var(--rows), 1fr);
+  border-width: 0 1px 1px 0;
+}
+
+.list--years LI {
+  justify-self: center;
+  padding: var(--tiny-space) 0;
+}
+
+.list--data LI {
+  background: pink;
+  grid-column-start: var(--col-start, 0);
+  grid-column-end: var(--col-end);
+  grid-row: var(--row-start);
+  overflow: hidden;
+  padding: var(--tiny-space);
+  border-radius: 5px;
+}
+
+.list--data LI:nth-child(6n + 1) {
+  background: var(--col-1);
+}
+.list--data LI:nth-child(6n + 2) {
+  background: var(--col-2);
+}
+.list--data LI:nth-child(6n + 3) {
+  background: var(--col-3);
+}
+.list--data LI:nth-child(6n + 4) {
+  background: var(--col-4);
+}
+.list--data LI:nth-child(6n + 5) {
+  background: var(--col-5);
+}
+.list--data LI:nth-child(6n + 6) {
+  background: var(--col-6);
+}
+
+.data-widget {
+  margin-top: 1rem;
+}
+.data-widget + .data-widget {
+  margin-top: 2rem;
+}
+
+.data-widget__title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
