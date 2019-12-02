@@ -5,6 +5,7 @@
   const sectionByDate = document.querySelector('.section--by-date');
   const sectionByGroup = document.querySelector('.section--by-group');
   const navGroups = document.querySelectorAll('.nav-group');
+  const lists = {};
 
   const years = {
     start: 2005,
@@ -14,10 +15,11 @@
   const cols = years.end - years.start + 1;
   document.documentElement.style.setProperty('--cols', cols );
 
-  fillListByDate(data);
-  fillListByGroup(data);
+  fillListByDate({data, listId: 'by-date'});
+  fillListByGroup({data});
 
   navGroups.forEach(navGroup => {
+    let isShown = true;
     fillNavGroup(navGroup);
   });
 
@@ -45,23 +47,46 @@
 
   //----------------------------------------
 
-  function fillYears(listElem) {
+  function fillYears({listYearsElem, listId}) {
     for(let i = years.start; i <= years.end; i++ ) {
       const liElem = document.createElement('li');
       liElem.classList.add('list-years__item');
-      liElem.innerHTML = i;
-      listElem.appendChild(liElem);
+
+      if(listId !== 'by-date') {
+        liElem.innerHTML = i;
+        listYearsElem.appendChild(liElem);
+        continue;
+      }
+
+      const buttonElem = document.createElement('button');
+      buttonElem.classList.add('button');
+      buttonElem.innerHTML = i;
+      buttonElem.type = 'button';
+      liElem.appendChild(buttonElem);
+      listYearsElem.appendChild(liElem);
+
+      buttonElem.addEventListener('click',() => {
+        lists['by-date'].forEach(item => {
+          const year = +item.dataset.year;
+
+          if (year <= i) {
+            item.classList.remove('list-data__item--disabled');
+          }
+          else {
+            item.classList.add('list-data__item--disabled');
+          }
+        })
+      });
     }
   }
 
   //----------------------------------------
 
-  function addDataWidget({widgetData, widgetName, widgetId, sectionElem}) {
+  function addDataWidget({widgetData, widgetName, widgetId, sectionElem, listId}) {
     const widgetElem = dataWidgetTmpl.content.cloneNode(true);
     const listYearsElem = widgetElem.querySelector('.list-years');
     const listDataElem = widgetElem.querySelector('.list-data');
-
-    fillYears(listYearsElem);
+    fillYears({listYearsElem, listId});
 
     if(widgetName) {
       const titleElem = document.createElement('h3');
@@ -75,25 +100,26 @@
 
     fillList({
       widgetData,
-      listDataElem
+      listDataElem,
+      listId
     });
 
     const widgetAdded = sectionElem.appendChild(widgetElem);
-    console.log(widgetAdded);
   }
 
   //----------------------------------------
 
-  function fillListByDate(widgetData) {
+  function fillListByDate({data, listId}) {
     addDataWidget({
-      widgetData,
-      sectionElem: sectionByDate
+      widgetData: data,
+      sectionElem: sectionByDate,
+      listId
     });
   }
 
   //----------------------------------------
 
-  function fillListByGroup(data) {
+  function fillListByGroup({data}) {
     const groups = getGroupsList(data);
 
     groups.forEach(item => {
@@ -108,11 +134,14 @@
 
   //----------------------------------------
 
-  function fillList({widgetData, listDataElem}) {
+  function fillList({widgetData, listDataElem, listId}) {
+    lists[listId] = [];
+
     widgetData.forEach((item, index) => {
       const liElem = document.createElement('li');
       liElem.classList.add('list-data__item');
       liElem.classList.add(`type-${item.group}`);
+      liElem.dataset.year = item.years.start;
       const liElemTitle = document.createElement('h3');
       const itemYears = item.years ? item.years.start : '';
 
@@ -120,15 +149,21 @@
 
       const itemLinksList = getItemLinksList(item.links);
 
-      let colEnd = cols + 1;
+      const groupElem = document.createElement('span');
+      groupElem.classList.add('group-name');
+      groupElem.innerHTML = groupsData[item.group].name;
 
       liElem.appendChild(liElemTitle);
       liElem.appendChild(itemLinksList);
+      liElem.appendChild(groupElem);
+
       listDataElem.appendChild(liElem);
 
       listDataElem.style.setProperty('--rows', widgetData.length);
 
       if(item.years) {
+        let colEnd = cols + 1;
+
         liElem.style.setProperty('--col-start', item.years.start - years.start + 1);
 
         if(item.years.end) {
@@ -139,6 +174,8 @@
       }
 
       liElem.style.setProperty('--row-start', index + 1);
+
+      lists[listId].push(liElem);
     });
   }
 
@@ -222,23 +259,45 @@
 
   function fillNavGroup(navGroup) {
     const map = new Map(Object.entries(groupsData));
+    // need to be fixed later
+    const siblingDataWidget = navGroup.parentNode.nextElementSibling;
+    siblingDataWidget.classList.add(...map.keys());
 
-    map.forEach((val, key, index) => {
+    const extendedMap = new Map(map);
+
+    extendedMap.set('select-all', {
+      name: 'Select all'
+    });
+    extendedMap.set('unselect-all', {
+      name: 'Unselect all'
+    });
+
+    extendedMap.forEach((val, key, index) => {
       const controlElem = createControl({val, key});
+      let isDisabled = false;
+
+      controlElem.addEventListener('click', () => {
+        if(map.has(key)) {
+          lists['by-date'].forEach(item => {
+            if (item.classList.contains(`type-${key}`)) {
+              item.classList.toggle('list-data__item--disabled');
+            }
+          })
+        }
+        else if (key === 'select-all') {
+          lists['by-date'].forEach(item => {
+            item.classList.remove('list-data__item--disabled');
+          })
+        }
+        else if (key === 'unselect-all') {
+          lists['by-date'].forEach(item => {
+            item.classList.add('list-data__item--disabled');
+          })
+        }
+      })
 
       navGroup.appendChild(controlElem);
     });
-
-    const controlElem = createControl(
-      {
-        val: {
-          name: 'Reset'
-        },
-        key: 'reset'
-      },
-    );
-
-    navGroup.appendChild(controlElem);
   }
 
   //----------------------------------------

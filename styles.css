@@ -59,6 +59,10 @@ A:hover {
   text-align: center;
 }
 
+.main {
+  position: relative;
+}
+
 .button {
   padding: var(--space);
   border: none;
@@ -68,6 +72,8 @@ A:hover {
   line-height: 1;
 }
 
+/* Nav
+------------------------------ */
 .nav {
   margin: 1rem 0
 }
@@ -84,10 +90,8 @@ A:hover {
   background: var(--col-6);
 }
 
-.main {
-  position: relative;
-}
-
+/* Section
+------------------------------ */
 .section {}
 
 .section--hidden {
@@ -97,10 +101,13 @@ A:hover {
 .section__header {
   position: sticky;
   top: 0;
+  z-index: 1;
   padding: var(--space) 0;
   background: rgba(255,255,255,.95);
 }
 
+/* List
+------------------------------ */
 .list {
   display: grid;
   grid-template-columns: repeat(var(--cols), 1fr);
@@ -111,7 +118,6 @@ A:hover {
   background: linear-gradient(to right, var(--gray) 1px, transparent 0);
   background-size: calc(100% / var(--cols)) 100%;
   border: 1px solid var(--gray);
-  /*outline: 1px solid green;*/
 }
 
 .list-years {
@@ -130,13 +136,52 @@ A:hover {
 }
 
 .list-data__item {
+  position: relative;
   grid-column-start: var(--col-start, 0);
   grid-column-end: var(--col-end);
   grid-row: var(--row-start);
   padding: var(--tiny-space) var(--space);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   border-radius: var(--radius);
+  line-height: 1.4;
+}
+
+.list-data__item--disabled {
+  opacity: .5;
+  filter: grayscale();
+}
+
+.list-data__item--disabled H3,
+.list-data__item--disabled .list-links {
+  opacity: 0;
+}
+
+.list-data__item:hover .list-links {
+  opacity: 1;
+}
+
+
+/* Data widget
+------------------------------ */
+.data-widget {
+  margin-top: 1rem;
+  padding: var(--space);
+  border-radius: var(--radius);
+}
+
+.data-widget + .data-widget {
+  margin-top: 2rem;
+}
+
+.data-widget:target {
+  border: 3px solid yellowgreen;
+}
+
+.data-widget__title {
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .data-widget[id] .list-data__item:nth-child(6n + 1) {
@@ -158,6 +203,8 @@ A:hover {
   background: var(--col-6);
 }
 
+/* Links list
+------------------------------ */
 .list-links {
   display: flex;
   align-items: center;
@@ -165,6 +212,8 @@ A:hover {
   margin-left: 1.5rem;
   padding: 0;
   list-style-type: none;
+  opacity: 0;
+  transition: .25s;
 }
 
 .list-links__item + .list-links__item {
@@ -175,35 +224,36 @@ A:hover {
   color: inherit;
 }
 
-.data-widget {
-  margin-top: 1rem;
-  padding: var(--space);
-  border-radius: var(--radius);
-}
-.data-widget + .data-widget {
-  margin-top: 2rem;
-}
-
-.data-widget:target {
-  border: 3px solid yellowgreen;
-}
-
-.data-widget__title {
+.group-name {
+  position: absolute;
+  right: var(--space);
   font-weight: bold;
-  margin-bottom: 1rem;
+  opacity: .2;
+  font-size: 1.2em;
+  color: #FFF;
+  text-shadow: 0 0 2px rgba(0,0,0,1);
 }
 
+/* Group nav
+------------------------------ */
 .nav-group {
   display: flex;
-
-  display: none;
-
+  flex-wrap: wrap;
   margin: var(--space);
 }
 
-.nav-group__control + .nav-group__control {
-  margin-left: var(--space);
+.nav-group__control {
+  white-space: nowrap;
+  margin: var(--tiny-space) 0;
+  margin-right: var(--space);
 }
+
+.nav-group__control:last-child {
+  margin-right: 0;
+}
+
+/* Types
+------------------------------ */
 
 .type-git {
   background: var(--col-git);
@@ -250,6 +300,8 @@ A:hover {
   color: #FFF;
 }
 
-.type-reset {
-  background: #DDD;
+.type-select-all,
+.type-unselect-all {
+  background: #FFF;
+  box-shadow: 0 0 0 2px #CCC inset;
 }
