@@ -5,6 +5,7 @@
   const sectionByDate = document.querySelector('.section--by-date');
   const sectionByGroup = document.querySelector('.section--by-group');
   const navGroups = document.querySelectorAll('.nav-group');
+  const classDisabled = 'list-data__item--disabled';
   const lists = {};
 
   const years = {
@@ -70,10 +71,10 @@
           const year = +item.dataset.year;
 
           if (year <= i) {
-            item.classList.remove('list-data__item--disabled');
+            item.classList.remove(classDisabled);
           }
           else {
-            item.classList.add('list-data__item--disabled');
+            item.classList.add(classDisabled);
           }
         })
       });
@@ -280,18 +281,18 @@
         if(map.has(key)) {
           lists['by-date'].forEach(item => {
             if (item.classList.contains(`type-${key}`)) {
-              item.classList.toggle('list-data__item--disabled');
+              item.classList.toggle(classDisabled);
             }
           })
         }
         else if (key === 'select-all') {
           lists['by-date'].forEach(item => {
-            item.classList.remove('list-data__item--disabled');
+            item.classList.remove(classDisabled);
           })
         }
         else if (key === 'unselect-all') {
           lists['by-date'].forEach(item => {
-            item.classList.add('list-data__item--disabled');
+            item.classList.add(classDisabled);
           })
         }
       })
