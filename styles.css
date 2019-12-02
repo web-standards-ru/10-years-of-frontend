@@ -5,6 +5,7 @@ HTML {
   --rows: 2;
   --space: .5rem;
   --tiny-space: .25rem;
+  --radius: 5px;
 
   --gray: #DDD;
 
@@ -14,6 +15,19 @@ HTML {
   --col-4: yellowgreen;
   --col-5: lightseagreen;
   --col-6: teal;
+
+  --col-git: #000;
+  --col-node: #026E00;
+  --col-features-detection: blueviolet;
+  --col-automating: tomato;
+  --col-toolkits: steelblue;
+  --col-linters: #777;
+  --col-fonts: crimson;
+  --col-css-preprocessors: lightseagreen;
+  --col-css-editors-tools: orange;
+  --col-js: gold;
+  --col-markup: yellowgreen;
+  --col-css: teal;
 }
 
 BODY {
@@ -28,21 +42,42 @@ H1, H2, H3, H4 {
   font-weight: normal;
 }
 
+A {
+  color: black;
+}
+
+A:hover {
+  text-decoration: none;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .header {
   text-align: center;
+}
+
+.button {
+  padding: var(--space);
+  border: none;
+  border-radius: var(--radius);
+  font: inherit;
+  cursor: pointer;
+  line-height: 1;
 }
 
 .nav {
   margin: 1rem 0
 }
 .nav__control {
-  padding: var(--space);
   background: #333;
-  border: none;
-  border-radius: 5px;
   color: #FFF;
-  font: inherit;
-  text-decoration: none;
+}
+
+.nav__control + .nav__control {
+  margin-left: var(--space);
 }
 
 .nav__control--current {
@@ -59,6 +94,13 @@ H1, H2, H3, H4 {
   display: none;
 }
 
+.section__header {
+  position: sticky;
+  top: 0;
+  padding: var(--space) 0;
+  background: rgba(255,255,255,.95);
+}
+
 .list {
   display: grid;
   grid-template-columns: repeat(var(--cols), 1fr);
@@ -72,58 +114,142 @@ H1, H2, H3, H4 {
   /*outline: 1px solid green;*/
 }
 
-.list--years {
+.list-years {
   border-left: 0;
 }
 
-.list--data {
+.list-years__item {
+  justify-self: center;
+  padding: var(--tiny-space) 0;
+}
+
+.list-data {
   padding: var(--space) 0;
   grid-template-rows: repeat(var(--rows), 1fr);
   border-width: 0 1px 1px 0;
 }
 
-.list--years LI {
-  justify-self: center;
-  padding: var(--tiny-space) 0;
-}
-
-.list--data LI {
-  background: pink;
+.list-data__item {
   grid-column-start: var(--col-start, 0);
   grid-column-end: var(--col-end);
   grid-row: var(--row-start);
-  overflow: hidden;
-  padding: var(--tiny-space);
-  border-radius: 5px;
+  padding: var(--tiny-space) var(--space);
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius);
 }
 
-.list--data LI:nth-child(6n + 1) {
+.data-widget[id] .list-data__item:nth-child(6n + 1) {
   background: var(--col-1);
 }
-.list--data LI:nth-child(6n + 2) {
+.data-widget[id] .list-data__item:nth-child(6n + 2) {
   background: var(--col-2);
 }
-.list--data LI:nth-child(6n + 3) {
+.data-widget[id] .list-data__item:nth-child(6n + 3) {
   background: var(--col-3);
 }
-.list--data LI:nth-child(6n + 4) {
+.data-widget[id] .list-data__item:nth-child(6n + 4) {
   background: var(--col-4);
 }
-.list--data LI:nth-child(6n + 5) {
+.data-widget[id] .list-data__item:nth-child(6n + 5) {
   background: var(--col-5);
 }
-.list--data LI:nth-child(6n + 6) {
+.data-widget[id] .list-data__item:nth-child(6n + 6) {
   background: var(--col-6);
+}
+
+.list-links {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-left: 1.5rem;
+  padding: 0;
+  list-style-type: none;
+}
+
+.list-links__item + .list-links__item {
+  margin-left: .5rem;
+}
+
+.list-links__item A {
+  color: inherit;
 }
 
 .data-widget {
   margin-top: 1rem;
+  padding: var(--space);
+  border-radius: var(--radius);
 }
 .data-widget + .data-widget {
   margin-top: 2rem;
 }
 
+.data-widget:target {
+  border: 3px solid yellowgreen;
+}
+
 .data-widget__title {
   font-weight: bold;
   margin-bottom: 1rem;
+}
+
+.nav-group {
+  display: flex;
+
+  display: none;
+
+  margin: var(--space);
+}
+
+.nav-group__control + .nav-group__control {
+  margin-left: var(--space);
+}
+
+.type-git {
+  background: var(--col-git);
+  color: #FFF;
+}
+.type-node {
+  background: var(--col-node);
+  color: #FFF;
+}
+.type-features-detection {
+  background: var(--col-features-detection);
+  color: #FFF;
+}
+.type-automating {
+  background: var(--col-automating);
+  color: #FFF;
+}
+.type-toolkits {
+  background: var(--col-toolkits);
+  color: #FFF;
+}
+.type-linters {
+  background: var(--col-linters);
+  color: #FFF;
+}
+.type-fonts {
+  background: var(--col-fonts);
+  color: #FFF;
+}
+.type-css-preprocessors {
+  background: var(--col-css-preprocessors);
+}
+.type-css-editors-tools {
+  background: var(--col-css-editors-tools);
+}
+.type-js {
+  background: var(--col-js);
+}
+.type-markup {
+  background: var(--col-markup);
+}
+.type-css {
+  background: var(--col-css);
+  color: #FFF;
+}
+
+.type-reset {
+  background: #DDD;
 }

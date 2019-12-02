@@ -4,6 +4,7 @@
   const dataWidgetTmpl = document.querySelector('#data-widget-tmpl');
   const sectionByDate = document.querySelector('.section--by-date');
   const sectionByGroup = document.querySelector('.section--by-group');
+  const navGroups = document.querySelectorAll('.nav-group');
 
   const years = {
     start: 2005,
@@ -15,6 +16,10 @@
 
   fillListByDate(data);
   fillListByGroup(data);
+
+  navGroups.forEach(navGroup => {
+    fillNavGroup(navGroup);
+  });
 
   addNavActions();
 
@@ -43,6 +48,7 @@
   function fillYears(listElem) {
     for(let i = years.start; i <= years.end; i++ ) {
       const liElem = document.createElement('li');
+      liElem.classList.add('list-years__item');
       liElem.innerHTML = i;
       listElem.appendChild(liElem);
     }
@@ -50,10 +56,11 @@
 
   //----------------------------------------
 
-  function addDataWidget({widgetData, widgetName, sectionElem}) {
-    const widget = dataWidgetTmpl.content.cloneNode(true);
-    const listYearsElem = widget.querySelector('.list--years');
-    const listDataElem = widget.querySelector('.list--data');
+  function addDataWidget({widgetData, widgetName, widgetId, sectionElem}) {
+    const widgetElem = dataWidgetTmpl.content.cloneNode(true);
+    const listYearsElem = widgetElem.querySelector('.list-years');
+    const listDataElem = widgetElem.querySelector('.list-data');
+
     fillYears(listYearsElem);
 
     if(widgetName) {
@@ -61,6 +68,9 @@
       titleElem.classList.add('data-widget__title');
       titleElem.innerHTML = widgetName;
       listYearsElem.parentNode.insertBefore(titleElem, listYearsElem);
+
+      // Need to add it to wodgetElem but it doesn't work
+      titleElem.parentNode.id = widgetId;
     }
 
     fillList({
@@ -68,16 +78,17 @@
       listDataElem
     });
 
-    sectionElem.appendChild(widget);
+    const widgetAdded = sectionElem.appendChild(widgetElem);
+    console.log(widgetAdded);
   }
 
   //----------------------------------------
 
   function fillListByDate(widgetData) {
     addDataWidget({
-        widgetData,
-        sectionElem: sectionByDate
-      });
+      widgetData,
+      sectionElem: sectionByDate
+    });
   }
 
   //----------------------------------------
@@ -87,6 +98,7 @@
 
     groups.forEach(item => {
       addDataWidget({
+        widgetId: item.id,
         widgetName: item.name,
         widgetData: item.data,
         sectionElem: sectionByGroup
@@ -99,13 +111,19 @@
   function fillList({widgetData, listDataElem}) {
     widgetData.forEach((item, index) => {
       const liElem = document.createElement('li');
+      liElem.classList.add('list-data__item');
+      liElem.classList.add(`type-${item.group}`);
       const liElemTitle = document.createElement('h3');
       const itemYears = item.years ? item.years.start : '';
 
       liElemTitle.innerHTML = `${item.name} ${itemYears}`;
+
+      const itemLinksList = getItemLinksList(item.links);
+
       let colEnd = cols + 1;
 
       liElem.appendChild(liElemTitle);
+      liElem.appendChild(itemLinksList);
       listDataElem.appendChild(liElem);
 
       listDataElem.style.setProperty('--rows', widgetData.length);
@@ -130,7 +148,8 @@
     const groups = data.reduce((prev, item) => {
       if(!prev[item.group]) {
         prev[item.group] = {
-          name: item.group,
+          id: item.group,
+          name: groupsData[item.group].name,
           data: []
         };
       }
@@ -141,11 +160,30 @@
     }, {});
 
     const groupsList = Object.values(groups);
-
     groupsList.sort(sortByName);
+
     return groupsList;
   }
 
+  //----------------------------------------
+
+  function getItemLinksList(linksList){
+    const listElem = document.createElement('ul');
+    listElem.classList.add('list-links');
+
+    linksList.forEach(item => {
+      const liElem = document.createElement('li');
+      liElem.classList.add('list-links__item');
+      const linkElem = document.createElement('a');
+      linkElem.href = item.url;
+      linkElem.innerHTML = item.name;
+
+      liElem.appendChild(linkElem);
+      listElem.appendChild(liElem);
+    });
+
+    return listElem;
+  }
   //----------------------------------------
 
   function addNavActions(){
@@ -178,6 +216,43 @@
         })
       })
     })
+  }
+
+  //----------------------------------------
+
+  function fillNavGroup(navGroup) {
+    const map = new Map(Object.entries(groupsData));
+
+    map.forEach((val, key, index) => {
+      const controlElem = createControl({val, key});
+
+      navGroup.appendChild(controlElem);
+    });
+
+    const controlElem = createControl(
+      {
+        val: {
+          name: 'Reset'
+        },
+        key: 'reset'
+      },
+    );
+
+    navGroup.appendChild(controlElem);
+  }
+
+  //----------------------------------------
+
+  function createControl({val, key}) {
+    const controlElem = document.createElement('button');
+    controlElem.dataset.target = key;
+    controlElem.classList.add('nav-group__control');
+    controlElem.classList.add('button');
+    controlElem.classList.add(`type-${key}`);
+    controlElem.innerHTML = val.name;
+    controlElem.type = 'button';
+
+    return controlElem;
   }
 
   //----------------------------------------

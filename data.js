@@ -1,10 +1,49 @@
+const groupsData = {
+  'automating': {
+    name: 'Automating'
+  },
+  'css': {
+    name: 'CSS'
+  },
+  'css-editors-tools': {
+    name: 'CSS editors tools'
+  },
+  'css-preprocessors': {
+    name: 'CSS preprocessors'
+  },
+  'features-detection': {
+    name: 'Features detection'
+  },
+  'fonts': {
+    name: 'Fonts'
+  },
+  'git': {
+    name: 'Git'
+  },
+  'js': {
+    name: 'JS'
+  },
+  'linters': {
+    name: 'Linters'
+  },
+  'markup': {
+    name: 'Markup'
+  },
+  'node': {
+    name: 'Node'
+  },
+  'toolkits': {
+    name: 'CSS Toolkits'
+  },
+};
+
 const data = [
   {
     name: 'Git',
     years: {
       start: 2005
     },
-    group: 'Git',
+    group: 'git',
     links: [
       {
         name: 'contributors',
@@ -17,7 +56,7 @@ const data = [
     years: {
       start: 2008
     },
-    group: 'Git',
+    group: 'git',
     links: [
       {
         name: 'intro',
@@ -30,7 +69,7 @@ const data = [
     years: {
       start: 2009
     },
-    group: 'Node',
+    group: 'node',
     links: [
       {
         name: 'changelog',
@@ -43,11 +82,15 @@ const data = [
     years: {
       start: 2010
     },
-    group: 'Node',
+    group: 'node',
     links: [
       {
         name: 'contributors',
-        url: 'https://github.com/npm/cli/graphs/contributors), [releases](https://github.com/npm/npm/releases?after=v0.1.1'
+        url: 'https://github.com/npm/cli/graphs/contributors'
+      },
+      {
+        name: 'releases',
+        url: 'https://github.com/npm/npm/releases?after=v0.1.1'
       }
     ]
   },
@@ -56,7 +99,7 @@ const data = [
     years: {
       start: 2012
     },
-    group: 'Features detection',
+    group: 'features-detection',
     links: [
       {
         name: 'contributors',
@@ -69,7 +112,7 @@ const data = [
     years: {
       start: 2013
     },
-    group: 'Features detection',
+    group: 'features-detection',
     links: [
       {
         name: 'css-tricks',
@@ -82,7 +125,7 @@ const data = [
     years: {
       start: 2011
     },
-    group: 'Automating',
+    group: 'automating',
     links: [
       {
         name: 'contributors',
@@ -99,7 +142,7 @@ const data = [
     years: {
       start: 2013
     },
-    group: 'Automating',
+    group: 'automating',
     links: [
       {
         name: 'contributors',
@@ -112,7 +155,7 @@ const data = [
     years: {
       start: 2012
     },
-    group: 'Automating',
+    group: 'automating',
     links: [
       {
         name: 'contributors',
@@ -125,7 +168,7 @@ const data = [
     years: {
       start: 2011
     },
-    group: 'Tools',
+    group: 'toolkits',
     links: [
       {
         name: 'contributors',
@@ -139,7 +182,7 @@ const data = [
       start: 2008,
       end: 2014
     },
-    group: 'Tools',
+    group: 'toolkits',
     links: [
       {
         name: 'contributors',
@@ -156,7 +199,7 @@ const data = [
     years: {
       start: 2013
     },
-    group: 'Linters',
+    group: 'linters',
     links: [
       {
         name: 'contributors',
@@ -169,7 +212,7 @@ const data = [
     years: {
       start: 2014
     },
-    group: 'Linters',
+    group: 'linters',
     links: [
       {
         name: 'contributors',
@@ -182,7 +225,7 @@ const data = [
       years: {
         start: 2012
       },
-      group: 'Linters',
+      group: 'linters',
       links: [
         {
           name: 'contributors',
@@ -195,7 +238,7 @@ const data = [
     years: {
       start: 2008
     },
-    group: 'Fonts',
+    group: 'fonts',
     links: [
       {
         name: 'caniuse',
@@ -208,7 +251,7 @@ const data = [
     years: {
       start: 2010
     },
-    group: 'Fonts',
+    group: 'fonts',
     links: [
       {
         name: 'intro',
@@ -221,7 +264,7 @@ const data = [
     years: {
       start: 2012
     },
-    group: 'Fonts',
+    group: 'fonts',
     links: [
       {
         name: 'releases',
@@ -234,7 +277,7 @@ const data = [
     years: {
       start: 2006
     },
-    group: 'CSS preprocessors',
+    group: 'css-preprocessors',
     links: [
       {
         name: 'contributors',
@@ -247,7 +290,7 @@ const data = [
     years: {
       start: 2009
     },
-    group: 'CSS preprocessors',
+    group: 'css-preprocessors',
     links: [
       {
         name: 'less history',
@@ -260,7 +303,7 @@ const data = [
     years: {
       start: 2010
     },
-    group: 'CSS preprocessors',
+    group: 'css-preprocessors',
     links: [
       {
         name: 'contributors',
@@ -273,7 +316,7 @@ const data = [
     years: {
       start: 2014
     },
-    group: 'CSS',
+    group: 'css',
     links: [
       {
         name: 'caniuse',
@@ -287,7 +330,7 @@ const data = [
       start: 2009,
       end: 2013
     },
-    group: 'CSS editors tools',
+    group: 'css-editors-tools',
     links: [
       {
         name: 'smashing',
@@ -300,7 +343,7 @@ const data = [
     years: {
       start: 2012
     },
-    group: 'CSS editors tools',
+    group: 'css-editors-tools',
     links: [
       {
         name: 'smashing',
@@ -317,7 +360,7 @@ const data = [
     years: {
       start: 2012
     },
-    group: 'CSS editors tools',
+    group: 'css-editors-tools',
     links: [
       {
         name: 'habr',
@@ -330,7 +373,7 @@ const data = [
     years: {
       start: 2006
     },
-    group: 'JS',
+    group: 'js',
     links: [
       {
         name: 'history',
@@ -343,7 +386,7 @@ const data = [
     years: {
       start: 2010
     },
-    group: 'Markup',
+    group: 'markup',
     links: [
       {
         name: 'caniuse',
@@ -356,7 +399,7 @@ const data = [
     years: {
       start: 2014
     },
-    group: 'Markup',
+    group: 'markup',
     links: [
       {
         name: 'intro',
@@ -369,7 +412,7 @@ const data = [
     years: {
       start: 2010
     },
-    group: 'CSS',
+    group: 'css',
     links: [
        {
         name: 'caniuse',
@@ -382,7 +425,7 @@ const data = [
     years: {
       start: 2013
     },
-    group: 'CSS',
+    group: 'css',
     links: [
      {
       name: 'caniuse',
@@ -395,7 +438,7 @@ const data = [
     years: {
       start: 2011
     },
-    group: 'CSS',
+    group: 'css',
     links: [
       {
         name: 'caniuse',
@@ -408,7 +451,7 @@ const data = [
     years: {
       start: '2015'
     },
-    group: 'CSS',
+    group: 'css',
     links: [
       {
         name: 'caniuse',

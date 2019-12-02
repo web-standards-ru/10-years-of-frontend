@@ -5,29 +5,39 @@
   <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 <body>
-  <header class="header">
-    <h1>More than 10 years of frontend</h1>
+  <div class="page">
+    <header class="header">
+      <h1>More than 10 years of frontend</h1>
 
-    <nav class="nav">
-      <button class="nav__control" data-target="section--by-date">By date</button>
-      <button class="nav__control" data-target="section--by-group">By group</button>
-    </nav>
-  </header>
+      <nav class="nav">
+        <button class="nav__control button" data-target="section--by-date">By date</button>
+        <button class="nav__control button" data-target="section--by-group">By group</button>
+      </nav>
+    </header>
 
-  <main class="main">
-    <section class="section section--by-date">
-      <h2>By date</h2>
-    </section>
+    <main class="main">
+      <section class="section section--by-date">
+        <header class="section__header">
+          <h2>By date</h2>
 
-    <section class="section section--by-group">
-      <h2>By group</h2>
-    </section>
-  </main>
+          <nav class="nav-group"></nav>
+        </header>
+      </section>
+
+      <section class="section section--by-group">
+        <header class="section__header">
+          <h2>By group</h2>
+
+          <!-- <nav class="nav-group"></nav> -->
+        </header>
+      </section>
+    </main>
+  </div>
 
   <template id="data-widget-tmpl">
     <div class="data-widget">
-      <ul class="list list--years"></ul>
-      <ul class="list list--data"></ul>
+      <ul class="list list-years"></ul>
+      <ul class="list list-data"></ul>
     </div>
   </template>
 
