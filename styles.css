@@ -16,12 +16,12 @@ HTML {
   --col-5: lightseagreen;
   --col-6: teal;
 
-  --col-git: #000;
-  --col-node: #026E00;
+  --col-git: black;
+  --col-node: forestgreen;
   --col-features-detection: blueviolet;
   --col-automating: tomato;
   --col-toolkits: steelblue;
-  --col-linters: #777;
+  --col-linters: olive;
   --col-fonts: crimson;
   --col-css-preprocessors: lightseagreen;
   --col-css-editors-tools: orange;
@@ -120,15 +120,6 @@ A:hover {
   border: 1px solid var(--gray);
 }
 
-.list-years {
-  border-left: 0;
-}
-
-.list-years__item {
-  justify-self: center;
-  padding: var(--tiny-space) 0;
-}
-
 .list-data {
   padding: var(--space) 0;
   grid-template-rows: repeat(var(--rows), 1fr);
@@ -158,8 +149,45 @@ A:hover {
   opacity: 0;
 }
 
-.list-data__item:hover .list-links {
+.list-data__item:not(.list-data__item--disabled):hover .list-links {
   opacity: 1;
+}
+
+
+/* Years
+------------------------------ */
+.list-years {
+  border-left: 0;
+}
+
+.list-years__item {
+  justify-self: stretch;
+  /*padding: var(--tiny-space) 0;*/
+}
+
+.list-years__container,
+.list-years__control {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.list-years__container {
+  box-sizing: border-box;
+  padding: var(--space);
+}
+
+.list-years__control {
+  border-radius: 0;
+  background: none;
+}
+
+.list-years__control:not(.list-years__control--active):hover {
+  background: var(--gray);
+}
+.list-years__control--active {
+  background: #555;
+  color: #FFF;
 }
 
 
@@ -184,6 +212,7 @@ A:hover {
   margin-bottom: 1rem;
 }
 
+/* Colorize only in static groups */
 .data-widget[id] .list-data__item:nth-child(6n + 1) {
   background: var(--col-1);
 }
@@ -224,7 +253,7 @@ A:hover {
   color: inherit;
 }
 
-.group-name {
+.list-data__group-name {
   position: absolute;
   right: var(--space);
   font-weight: bold;
@@ -255,53 +284,150 @@ A:hover {
 /* Types
 ------------------------------ */
 
-.type-git {
+.nav-group__control {
+  box-shadow: 0 0 0 2px inset;
+}
+.nav-group__control--active {
+  box-shadow: none;
+}
+
+/* Git*/
+.nav-group__control--type-git {
+  background: #FFF;
+  color: var(--col-git);
+}
+
+.list-data__item--type-git,
+.nav-group__control--type-git.nav-group__control--active {
   background: var(--col-git);
   color: #FFF;
 }
-.type-node {
+
+/* Node */
+.nav-group__control--type-node {
+  background: #FFF;
+  color: var(--col-node);
+}
+
+.list-data__item--type-node,
+.nav-group__control--type-node.nav-group__control--active {
   background: var(--col-node);
   color: #FFF;
 }
-.type-features-detection {
+
+/* Features detection */
+.nav-group__control--type-features-detection {
+  background: #FFF;
+  color: var(--col-features-detection);
+}
+.list-data__item--type-features-detection,
+.nav-group__control--type-features-detection.nav-group__control--active {
   background: var(--col-features-detection);
   color: #FFF;
 }
-.type-automating {
+
+/* Automating */
+.nav-group__control--type-automating {
+  background: #FFF;
+  color: var(--col-automating);
+}
+.list-data__item--type-automating,
+.nav-group__control--type-automating.nav-group__control--active {
   background: var(--col-automating);
   color: #FFF;
 }
-.type-toolkits {
+
+/* Toolkits */
+.nav-group__control--type-toolkits {
+  background: #FFF;
+  color: var(--col-toolkits);
+}
+.list-data__item--type-toolkits,
+.nav-group__control--type-toolkits.nav-group__control--active {
   background: var(--col-toolkits);
   color: #FFF;
 }
-.type-linters {
+
+/* Linters */
+.nav-group__control--type-linters {
+  background: #FFF;
+  color: var(--col-linters);
+}
+.list-data__item--type-linters,
+.nav-group__control--type-linters.nav-group__control--active {
   background: var(--col-linters);
   color: #FFF;
 }
-.type-fonts {
+
+/* Fonts */
+.nav-group__control--type-fonts {
+  background: #FFF;
+  color: var(--col-fonts);
+}
+.list-data__item--type-fonts,
+.nav-group__control--type-fonts.nav-group__control--active {
   background: var(--col-fonts);
   color: #FFF;
 }
-.type-css-preprocessors {
+
+/* Preprocessors */
+.nav-group__control--type-css-preprocessors {
+  background: #FFF;
+  color: var(--col-css-preprocessors);
+}
+.list-data__item--type-css-preprocessors,
+.nav-group__control--type-css-preprocessors.nav-group__control--active {
   background: var(--col-css-preprocessors);
+  color: #FFF;
 }
-.type-css-editors-tools {
+
+/* Editors tools */
+.nav-group__control--type-css-editors-tools {
+  background: #FFF;
+  color: var(--col-css-editors-tools);
+}
+.list-data__item--type-css-editors-tools,
+.nav-group__control--type-css-editors-tools.nav-group__control--active {
   background: var(--col-css-editors-tools);
+  color: #FFF;
 }
-.type-js {
+
+/* JS */
+.nav-group__control--type-js {
+  background: #FFF;
+  color: var(--col-js);
+}
+.list-data__item--type-js,
+.nav-group__control--type-js.nav-group__control--active {
   background: var(--col-js);
+  color: #FFF;
 }
-.type-markup {
+
+/* Markup */
+.nav-group__control--type-markup {
+  background: #FFF;
+  color: var(--col-markup);
+}
+.list-data__item--type-markup,
+.nav-group__control--type-markup.nav-group__control--active {
   background: var(--col-markup);
+  color: #FFF;
 }
-.type-css {
+
+/* CSS */
+.nav-group__control--type-css {
+  background: #FFF;
+  color: var(--col-css);
+}
+.list-data__item--type-css,
+.nav-group__control--type-css.nav-group__control--active {
   background: var(--col-css);
   color: #FFF;
 }
 
-.type-select-all,
-.type-unselect-all {
+/* Select/unselect */
+.list-data__item--type-select-all,
+.list-data__item--type-unselect-all {
   background: #FFF;
   box-shadow: 0 0 0 2px #CCC inset;
 }

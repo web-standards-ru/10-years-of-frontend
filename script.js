@@ -5,8 +5,29 @@
   const sectionByDate = document.querySelector('.section--by-date');
   const sectionByGroup = document.querySelector('.section--by-group');
   const navGroups = document.querySelectorAll('.nav-group');
-  const classDisabled = 'list-data__item--disabled';
-  const lists = {};
+  const classes = {
+    dataItem: 'list-data__item',
+    dataItemDisabled: 'list-data__item--disabled',
+    dataItemGroupName: 'list-data__group-name',
+    dataItemTitle: 'list-data__title',
+
+    navControl: 'nav__control',
+    navControlCurrent: 'nav__control--current',
+    sectionHidden: 'section--hidden',
+
+    navGroupControl: 'nav-group__control',
+    navGroupControlActive: 'nav-group__control--active',
+
+    listYearsItem: 'list-years__item',
+    listYearsControl: 'list-years__control',
+    listYearsControlActive: 'list-years__control--active',
+    listYearsContainer: 'list-years__container',
+  };
+  const lists = {
+    'by-date': [],
+    'groups-nav': [],
+    'years-nav': []
+  };
 
   const years = {
     start: 2005,
@@ -24,7 +45,7 @@
     fillNavGroup(navGroup);
   });
 
-  addNavActions();
+  addSectionNavActions();
 
   //----------------------------------------
 
@@ -51,32 +72,62 @@
   function fillYears({listYearsElem, listId}) {
     for(let i = years.start; i <= years.end; i++ ) {
       const liElem = document.createElement('li');
-      liElem.classList.add('list-years__item');
+      liElem.classList.add(classes.listYearsItem);
 
       if(listId !== 'by-date') {
-        liElem.innerHTML = i;
+        const spanElem = document.createElement('span');
+        spanElem.classList.add(classes.listYearsContainer);
+        spanElem.innerHTML = i;
+        liElem.appendChild(spanElem);
         listYearsElem.appendChild(liElem);
         continue;
       }
 
       const buttonElem = document.createElement('button');
-      buttonElem.classList.add('button');
+      buttonElem.classList.add('button', classes.listYearsControl);
       buttonElem.innerHTML = i;
+      buttonElem.dataset.year = i;
       buttonElem.type = 'button';
       liElem.appendChild(buttonElem);
       listYearsElem.appendChild(liElem);
 
-      buttonElem.addEventListener('click',() => {
-        lists['by-date'].forEach(item => {
-          const year = +item.dataset.year;
+      lists['years-nav'].push(buttonElem);
 
-          if (year <= i) {
-            item.classList.remove(classDisabled);
-          }
-          else {
-            item.classList.add(classDisabled);
-          }
-        })
+      buttonElem.addEventListener('click',() => {
+        removeClasses({
+          list: lists['groups-nav'],
+          className: classes.navGroupControlActive
+        });
+
+        removeClasses({
+          list: lists['years-nav'],
+          className: classes.listYearsControlActive
+        });
+
+        addClasses({
+          list: lists['by-date'],
+          className: classes.dataItemDisabled
+        });
+
+        const itemsToSelect = lists['by-date'].filter(item => {
+          const year = +item.dataset.year;
+          return year <= i;
+        });
+
+        removeClasses({
+          list: itemsToSelect,
+          className: classes.dataItemDisabled
+        });
+
+        const yearsToSelect = lists['years-nav'].filter(item => {
+          const year = +item.dataset.year;
+          return year <= i;
+        });
+
+        addClasses({
+          list: yearsToSelect,
+          className: classes.listYearsControlActive
+        });
       });
     }
   }
@@ -136,14 +187,19 @@
   //----------------------------------------
 
   function fillList({widgetData, listDataElem, listId}) {
-    lists[listId] = [];
+    if(!lists[listId]) {
+      lists[listId] = [];
+    }
 
     widgetData.forEach((item, index) => {
       const liElem = document.createElement('li');
-      liElem.classList.add('list-data__item');
-      liElem.classList.add(`type-${item.group}`);
+      liElem.classList.add(
+        classes.dataItem,
+        `${classes.dataItem}--type-${item.group}`
+      );
       liElem.dataset.year = item.years.start;
       const liElemTitle = document.createElement('h3');
+      liElemTitle.classList.add(classes.dataItemTitle);
       const itemYears = item.years ? item.years.start : '';
 
       liElemTitle.innerHTML = `${item.name} ${itemYears}`;
@@ -151,7 +207,7 @@
       const itemLinksList = getItemLinksList(item.links);
 
       const groupElem = document.createElement('span');
-      groupElem.classList.add('group-name');
+      groupElem.classList.add(classes.dataItemGroupName);
       groupElem.innerHTML = groupsData[item.group].name;
 
       liElem.appendChild(liElemTitle);
@@ -224,32 +280,28 @@
   }
   //----------------------------------------
 
-  function addNavActions(){
-    const navControls = document.querySelectorAll('.nav__control');
-    const classes = {
-      navCurrent: 'nav__control--current',
-      secHidden: 'section--hidden'
-    };
+  function addSectionNavActions(){
+    const navControls = document.querySelectorAll(`.${classes.navControl}`);
 
     currentControl = navControls[0];
-    currentControl.classList.add(classes.navCurrent);
+    currentControl.classList.add(classes.navControlCurrent);
 
     navControls.forEach(item => {
       const targetClass = item.dataset.target;
       const sections = document.querySelectorAll('.section');
-      sections[1].classList.add(classes.secHidden);
+      sections[1].classList.add(classes.sectionHidden);
 
       item.addEventListener('click', () => {
-        currentControl.classList.remove(classes.navCurrent);
+        currentControl.classList.remove(classes.navControlCurrent);
         currentControl = item;
-        currentControl.classList.add(classes.navCurrent);
+        currentControl.classList.add(classes.navControlCurrent);
 
         sections.forEach(section => {
           if (section.classList.contains(targetClass)) {
-            section.classList.remove(classes.secHidden);
+            section.classList.remove(classes.sectionHidden);
           }
           else {
-            section.classList.add(classes.secHidden);
+            section.classList.add(classes.sectionHidden);
           }
         })
       })
@@ -258,14 +310,34 @@
 
   //----------------------------------------
 
+  function addClasses({list, className}) {
+    list.forEach(item => {
+      item.classList.add(className);
+    })
+  }
+
+  //----------------------------------------
+
+  function removeClasses({list, className}) {
+    list.forEach(item => {
+      item.classList.remove(className);
+    })
+  }
+
+  //----------------------------------------
+
+  function toggleClasses({list, className, force}) {
+    list.forEach(item => {
+      item.classList.toggle(className, force);
+    })
+  }
+
+  //----------------------------------------
+
   function fillNavGroup(navGroup) {
     const map = new Map(Object.entries(groupsData));
-    // need to be fixed later
-    const siblingDataWidget = navGroup.parentNode.nextElementSibling;
-    siblingDataWidget.classList.add(...map.keys());
 
     const extendedMap = new Map(map);
-
     extendedMap.set('select-all', {
       name: 'Select all'
     });
@@ -279,25 +351,39 @@
 
       controlElem.addEventListener('click', () => {
         if(map.has(key)) {
-          lists['by-date'].forEach(item => {
-            if (item.classList.contains(`type-${key}`)) {
-              item.classList.toggle(classDisabled);
-            }
-          })
+          controlElem.classList.toggle(classes.navGroupControlActive);
+
+          const itemsToToggle = lists['by-date'].filter(item => {
+            return item.classList.contains(`${classes.dataItem}--type-${key}`);
+          });
+          const isActive = controlElem.classList.contains(classes.navGroupControlActive);
+
+          toggleClasses({
+            list: itemsToToggle,
+            className: classes.dataItemDisabled,
+            force: !isActive
+          });
         }
         else if (key === 'select-all') {
-          lists['by-date'].forEach(item => {
-            item.classList.remove(classDisabled);
-          })
+          removeClasses({
+            list: lists['by-date'],
+            className: classes.dataItemDisabled
+          });
         }
         else if (key === 'unselect-all') {
-          lists['by-date'].forEach(item => {
-            item.classList.add(classDisabled);
-          })
+          removeClasses({
+            list: lists['groups-nav'],
+            className: classes.navGroupControlActive
+          });
+          addClasses({
+            list: lists['by-date'],
+            className: classes.dataItemDisabled
+          });
         }
       })
 
       navGroup.appendChild(controlElem);
+      lists['groups-nav'].push(controlElem);
     });
   }
 
@@ -306,9 +392,17 @@
   function createControl({val, key}) {
     const controlElem = document.createElement('button');
     controlElem.dataset.target = key;
-    controlElem.classList.add('nav-group__control');
-    controlElem.classList.add('button');
-    controlElem.classList.add(`type-${key}`);
+    const controlClasses = [
+      classes.navGroupControl,
+      `${classes.navGroupControl}--type-${key}`,
+      'button',
+    ];
+
+    if(key !== 'select-all' && key !== 'unselect-all') {
+      controlClasses.push(classes.navGroupControlActive);
+    }
+
+    controlElem.classList.add(...controlClasses);
     controlElem.innerHTML = val.name;
     controlElem.type = 'button';
 
