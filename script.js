@@ -365,6 +365,10 @@
           });
         }
         else if (key === 'select-all') {
+          addClasses({
+            list: lists['groups-nav'],
+            className: classes.navGroupControlActive
+          });
           removeClasses({
             list: lists['by-date'],
             className: classes.dataItemDisabled
@@ -383,7 +387,10 @@
       })
 
       navGroup.appendChild(controlElem);
-      lists['groups-nav'].push(controlElem);
+
+      if (key !== 'select-all' && key !== 'unselect-all') {
+        lists['groups-nav'].push(controlElem);
+      }
     });
   }
 

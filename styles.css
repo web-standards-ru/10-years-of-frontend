@@ -112,7 +112,8 @@ A:hover {
 .list {
   display: grid;
   grid-template-columns: repeat(var(--cols), 1fr);
-  grid-row-gap: var(--space);
+  grid-row-gap: 0;
+  grid-template-rows: min-content auto;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -122,8 +123,8 @@ A:hover {
 }
 
 .list-data {
+  min-height: 50px;
   padding: var(--space) 0;
-  grid-template-rows: repeat(var(--rows), 1fr);
   border-width: 0 1px 1px 0;
 }
 
@@ -140,20 +141,17 @@ A:hover {
   line-height: 1.4;
 }
 
+.list-data__item + .list-data__item {
+  margin-top: var(--space);
+}
+
 .list-data__item--disabled {
-  opacity: .5;
-  filter: grayscale();
+  display: none;
 }
 
-.list-data__item--disabled H3,
-.list-data__item--disabled .list-links {
-  opacity: 0;
-}
-
-.list-data__item:not(.list-data__item--disabled):hover .list-links {
+.list-data__item:hover .list-links {
   opacity: 1;
 }
-
 
 /* Years
 ------------------------------ */
