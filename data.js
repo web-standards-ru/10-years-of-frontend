@@ -2,6 +2,9 @@ const groupsData = {
   'automating': {
     name: 'Automating'
   },
+  'browsers': {
+    name: 'Browsers'
+  },
   'css': {
     name: 'CSS'
   },
@@ -459,4 +462,58 @@ const data = [
       }
     ]
   },
+  {
+    name: 'Web developer',
+    years: {
+      start: 2003
+    },
+    group: 'browsers',
+    links: [
+      {
+        name: 'logs',
+        url: 'https://chrispederick.com/work/web-developer/history/firefox/'
+      }
+    ]
+  },
+  {
+    name: 'Firebug',
+    years: {
+      start: 2006
+    },
+    group: 'browsers',
+    links: [
+      {
+        name: 'site',
+        url: 'https://getfirebug.com/), 2010 addon for Chrome'
+      }
+    ]
+  },
+  {
+    name: 'Chrome',
+    years: {
+      start: 2008
+    },
+    group: 'browsers',
+    links: [
+      {
+        name: 'release',
+        url: 'https://googleblog.blogspot.com/2008/09/google-chrome-now-live.html'
+      }
+    ]
+  },
+  {
+    name: 'Chrome Dev Tools',
+    years: {
+      start: 2011
+    },
+    group: 'browsers',
+    links: [
+      {
+        name: 'html5 rocks',
+        ulr: 'https://www.html5rocks.com/en/tutorials/developertools/part1/',
+        name: 'Paul Irish',
+        ulr: 'https://www.paulirish.com/2011/a-re-introduction-to-the-chrome-developer-tools/'
+      }
+    ]
+  }
 ];

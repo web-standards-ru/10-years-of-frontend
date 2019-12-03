@@ -16,18 +16,19 @@ HTML {
   --col-5: lightseagreen;
   --col-6: teal;
 
-  --col-git: black;
-  --col-node: forestgreen;
-  --col-features-detection: blueviolet;
   --col-automating: tomato;
-  --col-toolkits: steelblue;
-  --col-linters: olive;
-  --col-fonts: crimson;
-  --col-css-preprocessors: lightseagreen;
-  --col-css-editors-tools: orange;
-  --col-js: gold;
-  --col-markup: yellowgreen;
+  --col-browsers: royalblue;
   --col-css: teal;
+  --col-css-editors-tools: orange;
+  --col-css-preprocessors: lightseagreen;
+  --col-features-detection: blueviolet;
+  --col-fonts: crimson;
+  --col-git: black;
+  --col-js: gold;
+  --col-linters: olive;
+  --col-markup: yellowgreen;
+  --col-node: forestgreen;
+  --col-toolkits: steelblue;
 }
 
 BODY {
@@ -422,6 +423,17 @@ A:hover {
 .list-data__item--type-css,
 .nav-group__control--type-css.nav-group__control--active {
   background: var(--col-css);
+  color: #FFF;
+}
+
+/* CSS */
+.nav-group__control--type-browsers {
+  background: #FFF;
+  color: var(--col-browsers);
+}
+.list-data__item--type-browsers,
+.nav-group__control--type-browsers.nav-group__control--active {
+  background: var(--col-browsers);
   color: #FFF;
 }
 
