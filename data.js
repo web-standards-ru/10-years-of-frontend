@@ -478,13 +478,14 @@ const data = [
   {
     name: 'Firebug',
     years: {
-      start: 2006
+      start: 2006,
+      end: 2017
     },
     group: 'browsers',
     links: [
       {
         name: 'site',
-        url: 'https://getfirebug.com/), 2010 addon for Chrome'
+        url: 'https://getfirebug.com/'
       }
     ]
   },
