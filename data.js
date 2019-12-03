@@ -516,5 +516,18 @@ const data = [
         ulr: 'https://www.paulirish.com/2011/a-re-introduction-to-the-chrome-developer-tools/'
       }
     ]
+  },
+  {
+    name: 'caniemail',
+    years: {
+      start: 2019
+    },
+    group: 'features-detection',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/hteumeuleu/caniemail/graphs/contributors'
+      }
+    ]
   }
 ];
