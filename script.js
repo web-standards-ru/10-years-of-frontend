@@ -7,6 +7,7 @@
   const navGroups = document.querySelectorAll('.nav-group');
   const classes = {
     dataItem: 'list-data__item',
+    dataContent: 'list-data__content',
     dataItemDisabled: 'list-data__item--disabled',
     dataItemGroupName: 'list-data__group-name',
     dataItemTitle: 'list-data__title',
@@ -192,10 +193,18 @@
     }
 
     widgetData.forEach((item, index) => {
+      const yearEnd = item.years.end || years.end;
       const liElem = document.createElement('li');
-      liElem.classList.add(
+      const liElemClasses = [
         classes.dataItem,
-        `${classes.dataItem}--type-${item.group}`
+        `${classes.dataItem}--type-${item.group}`,
+        `${classes.dataItem}--lehgth-${yearEnd - item.years.start + 1}`
+      ];
+      liElem.classList.add(...liElemClasses);
+
+      const contentElem = document.createElement('div');
+      contentElem.classList.add(
+        classes.dataContent
       );
       liElem.dataset.year = item.years.start;
       const liElemTitle = document.createElement('h3');
@@ -210,9 +219,11 @@
       groupElem.classList.add(classes.dataItemGroupName);
       groupElem.innerHTML = groupsData[item.group].name;
 
-      liElem.appendChild(liElemTitle);
-      liElem.appendChild(itemLinksList);
-      liElem.appendChild(groupElem);
+      contentElem.appendChild(liElemTitle);
+      contentElem.appendChild(itemLinksList);
+      contentElem.appendChild(groupElem);
+
+      liElem.appendChild(contentElem);
 
       listDataElem.appendChild(liElem);
 

@@ -134,6 +134,7 @@ A:hover {
   grid-column-end: var(--col-end);
   grid-row: var(--row-start);
   padding: var(--tiny-space) var(--space);
+  min-width: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -151,6 +152,19 @@ A:hover {
 
 .list-data__item:hover .list-links {
   opacity: 1;
+}
+
+.list-data__item--lehgth-1 {
+  font-size: 10px;
+}
+
+.list-data__item--lehgth-2 {
+  font-size: 12px;
+}
+
+.list-data__content {
+  display: flex;
+  align-items: center;
 }
 
 /* Years
