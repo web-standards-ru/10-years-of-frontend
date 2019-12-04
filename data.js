@@ -5,14 +5,17 @@ const groupsData = {
   'browsers': {
     name: 'Browsers'
   },
-  'css': {
-    name: 'CSS'
+  'css-properties': {
+    name: 'CSS properties'
   },
   'css-editors-tools': {
     name: 'CSS editors tools'
   },
   'css-preprocessors': {
     name: 'CSS preprocessors'
+  },
+  'css-toolkits': {
+    name: 'CSS toolkits'
   },
   'features-detection': {
     name: 'Features detection'
@@ -34,9 +37,6 @@ const groupsData = {
   },
   'node': {
     name: 'Node'
-  },
-  'toolkits': {
-    name: 'CSS Toolkits'
   },
 };
 
@@ -171,7 +171,7 @@ const data = [
     years: {
       start: 2005
     },
-    group: 'toolkits',
+    group: 'css-toolkits',
     links: [
       {
         name: 'history',
@@ -184,7 +184,7 @@ const data = [
     years: {
       start: 2011
     },
-    group: 'toolkits',
+    group: 'css-toolkits',
     links: [
       {
         name: 'contributors',
@@ -198,7 +198,7 @@ const data = [
       start: 2008,
       end: 2014
     },
-    group: 'toolkits',
+    group: 'css-toolkits',
     links: [
       {
         name: 'contributors',
@@ -332,7 +332,7 @@ const data = [
     years: {
       start: 2014
     },
-    group: 'css',
+    group: 'css-properties',
     links: [
       {
         name: 'caniuse',
@@ -428,7 +428,7 @@ const data = [
     years: {
       start: 2010
     },
-    group: 'css',
+    group: 'css-properties',
     links: [
        {
         name: 'caniuse',
@@ -441,7 +441,7 @@ const data = [
     years: {
       start: 2013
     },
-    group: 'css',
+    group: 'css-properties',
     links: [
      {
       name: 'caniuse',
@@ -454,7 +454,7 @@ const data = [
     years: {
       start: 2011
     },
-    group: 'css',
+    group: 'css-properties',
     links: [
       {
         name: 'caniuse',
@@ -467,7 +467,7 @@ const data = [
     years: {
       start: '2015'
     },
-    group: 'css',
+    group: 'css-properties',
     links: [
       {
         name: 'caniuse',

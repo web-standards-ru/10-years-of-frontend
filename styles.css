@@ -18,7 +18,7 @@ HTML {
 
   --col-automating: tomato;
   --col-browsers: royalblue;
-  --col-css: teal;
+  --col-css-properties: teal;
   --col-css-editors-tools: orange;
   --col-css-preprocessors: lightseagreen;
   --col-features-detection: blueviolet;
@@ -28,7 +28,7 @@ HTML {
   --col-linters: olive;
   --col-markup: yellowgreen;
   --col-node: forestgreen;
-  --col-toolkits: steelblue;
+  --col-css-toolkits: steelblue;
 }
 
 BODY {
@@ -350,14 +350,14 @@ A:hover {
   color: #FFF;
 }
 
-/* Toolkits */
-.nav-group__control--type-toolkits {
+/* CSS Toolkits */
+.nav-group__control--type-css-toolkits {
   background: #FFF;
-  color: var(--col-toolkits);
+  color: var(--col-css-toolkits);
 }
-.list-data__item--type-toolkits,
-.nav-group__control--type-toolkits.nav-group__control--active {
-  background: var(--col-toolkits);
+.list-data__item--type-css-toolkits,
+.nav-group__control--type-css-toolkits.nav-group__control--active {
+  background: var(--col-css-toolkits);
   color: #FFF;
 }
 
@@ -428,17 +428,17 @@ A:hover {
 }
 
 /* CSS */
-.nav-group__control--type-css {
+.nav-group__control--type-css-properties {
   background: #FFF;
-  color: var(--col-css);
+  color: var(--col-css-properties);
 }
-.list-data__item--type-css,
-.nav-group__control--type-css.nav-group__control--active {
-  background: var(--col-css);
+.list-data__item--type-css-properties,
+.nav-group__control--type-css-properties.nav-group__control--active {
+  background: var(--col-css-properties);
   color: #FFF;
 }
 
-/* CSS */
+/* Browsers */
 .nav-group__control--type-browsers {
   background: #FFF;
   color: var(--col-browsers);
