@@ -167,6 +167,19 @@ const data = [
     ]
   },
   {
+    name: 'BEM',
+    years: {
+      start: 2005
+    },
+    group: 'toolkits',
+    links: [
+      {
+        name: 'history',
+        url: 'https://ru.bem.info/methodology/history/'
+      }
+    ]
+  },
+  {
     name: 'Bootstrap',
     years: {
       start: 2011
