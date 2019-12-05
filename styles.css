@@ -28,7 +28,7 @@ HTML {
   --col-linters: olive;
   --col-markup: yellowgreen;
   --col-node: forestgreen;
-  --col-css-toolkits: steelblue;
+  --col-css-toolkits: darkslateblue;
 }
 
 BODY {
@@ -162,9 +162,38 @@ A:hover {
   font-size: 12px;
 }
 
+.list-data__item--lehgth-3 {
+  font-size: 14px;
+}
+
+.list-data__item--lehgth-1 .list-data__group-name,
+.list-data__item--lehgth-2 .list-data__group-name,
+.list-data__item--lehgth-3 .list-data__group-name {
+  display: none;
+  }
+
+.list-data__title {
+  margin-right: 1rem;
+}
+
 .list-data__content {
+  position: relative;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.list-data__group-name {
+  position: absolute;
+  right: 0;
+  font-weight: bold;
+  opacity: .2;
+  font-size: 1.2em;
+  color: #FFF;
+  text-shadow: 0 0 2px rgba(0,0,0,1);
 }
 
 /* Years
@@ -202,7 +231,6 @@ A:hover {
   background: #555;
   color: #FFF;
 }
-
 
 /* Data widget
 ------------------------------ */
@@ -251,7 +279,6 @@ A:hover {
   display: flex;
   align-items: center;
   margin: 0;
-  margin-left: 1.5rem;
   padding: 0;
   list-style-type: none;
   opacity: 0;
@@ -264,16 +291,6 @@ A:hover {
 
 .list-links__item A {
   color: inherit;
-}
-
-.list-data__group-name {
-  position: absolute;
-  right: var(--space);
-  font-weight: bold;
-  opacity: .2;
-  font-size: 1.2em;
-  color: #FFF;
-  text-shadow: 0 0 2px rgba(0,0,0,1);
 }
 
 /* Group nav
