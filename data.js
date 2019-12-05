@@ -424,6 +424,19 @@ const data = [
     ]
   },
   {
+    name: 'Babel',
+    years: {
+      start: 2012
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/babel/babel/graphs/contributors'
+      }
+    ]
+  },
+  {
     name: 'React',
     years: {
       start: 2013
@@ -446,6 +459,32 @@ const data = [
       {
         name: 'intro',
         url: 'https://engineering.fb.com/web/flow-a-new-static-type-checker-for-javascript/'
+      }
+    ]
+  },
+  {
+    name: 'Vue',
+    years: {
+      start: 2014
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'intro',
+        url: 'https://blog.evanyou.me/2014/02/11/first-week-of-launching-an-oss-project/'
+      }
+    ]
+  },
+  {
+    name: 'Svelte',
+    years: {
+      start: 2016
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/sveltejs/svelte/graphs/contributors'
       }
     ]
   },
@@ -524,6 +563,19 @@ const data = [
       {
         name: 'caniuse',
         url: 'https://caniuse.com/#feat=flexbox'
+      }
+    ]
+  },
+  {
+    name: 'Grids',
+    years: {
+      start: '2017'
+    },
+    group: 'css-properties',
+    links: [
+      {
+        name: 'caniuse',
+        url: 'https://caniuse.com/#search=grid'
       }
     ]
   },
