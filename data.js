@@ -398,6 +398,58 @@ const data = [
     ]
   },
   {
+    name: 'Angular',
+    years: {
+      start: 2010
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/angular/angular.js/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'TypeScript',
+    years: {
+      start: 2012
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'announce',
+        url: 'https://devblogs.microsoft.com/typescript/announcing-typescript-0-8-1/'
+      }
+    ]
+  },
+  {
+    name: 'React',
+    years: {
+      start: 2013
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/facebook/react/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'Flow',
+    years: {
+      start: 2014
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'intro',
+        url: 'https://engineering.fb.com/web/flow-a-new-static-type-checker-for-javascript/'
+      }
+    ]
+  },
+  {
     name: 'SVG',
     years: {
       start: 2010
