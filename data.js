@@ -14,11 +14,11 @@ const groupsData = {
   'css-preprocessors': {
     name: 'CSS preprocessors'
   },
-  'css-processors': {
-    name: 'CSS processors'
+  'css-toolkits': {
+    name: 'CSS toolkits'
   },
-  'html-processors': {
-    name: 'HTML processors'
+  'html-toolkits': {
+    name: 'HTML toolkits'
   }
   'css-toolkits': {
     name: 'CSS toolkits'
@@ -658,7 +658,7 @@ const data = [
     years: {
       start: 2013
     },
-    group: 'css-processor',
+    group: 'css-toolkits',
     links: [
       {
         name: 'postcss',
@@ -671,7 +671,7 @@ const data = [
     years: {
       start: 2015
     },
-    group: 'html-processor',
+    group: 'html-toolkits',
     links: [
       {
         name: 'posthtml',
