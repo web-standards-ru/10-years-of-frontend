@@ -14,9 +14,6 @@ const groupsData = {
   'css-preprocessors': {
     name: 'CSS preprocessors'
   },
-  'css-toolkits': {
-    name: 'CSS toolkits'
-  },
   'html-toolkits': {
     name: 'HTML toolkits'
   }
@@ -413,6 +410,19 @@ const data = [
       {
         name: 'contributors',
         url: 'https://github.com/angular/angular.js/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'CoffeeScript',
+    years: {
+      start: 2009
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/jashkenas/coffeescript/graphs/contributors'
       }
     ]
   },
