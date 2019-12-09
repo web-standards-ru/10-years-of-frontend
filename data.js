@@ -38,6 +38,9 @@ const groupsData = {
   'node': {
     name: 'Node'
   },
+  'tests': {
+    name: 'Tests'
+  },
 };
 
 const data = [
