@@ -657,6 +657,10 @@ const data = [
       {
         name: 'website',
         url: 'https://webassembly.org'
+      },
+      {
+        name: 'roadmap',
+        url: 'https://webassembly.org/roadmap/'
       }
     ]
   }
