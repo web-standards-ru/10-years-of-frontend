@@ -100,7 +100,7 @@ const data = [
   {
     name: 'Caniuse',
     years: {
-      start: 2012
+      start: 2008
     },
     group: 'features-detection',
     links: [
