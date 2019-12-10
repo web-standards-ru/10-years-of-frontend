@@ -387,6 +387,10 @@
         }
         else if (key === 'unselect-all') {
           removeClasses({
+            list: lists['years-nav'],
+            className: classes.listYearsControlActive
+          });
+          removeClasses({
             list: lists['groups-nav'],
             className: classes.navGroupControlActive
           });
