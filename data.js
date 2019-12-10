@@ -26,6 +26,9 @@ const groupsData = {
   'git': {
     name: 'Git'
   },
+  'html-toolkits': {
+    name: 'HTML toolkits'
+  },
   'js': {
     name: 'JS'
   },
@@ -414,6 +417,19 @@ const data = [
     ]
   },
   {
+    name: 'CoffeeScript',
+    years: {
+      start: 2009
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/jashkenas/coffeescript/graphs/contributors'
+      }
+    ]
+  },
+  {
     name: 'TypeScript',
     years: {
       start: 2012
@@ -668,6 +684,32 @@ const data = [
     ]
   },
   {
+    name: 'PostCSS',
+    years: {
+      start: 2013
+    },
+    group: 'css-toolkits',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/postcss/postcss/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'PostHTML',
+    years: {
+      start: 2015
+    },
+    group: 'html-toolkits',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/posthtml/posthtml/graphs/contributors'
+      }
+    ]
+  },
+  {
     name: 'Cypress',
     years: {
       start: 2016
@@ -681,6 +723,23 @@ const data = [
       {
         name: 'site',
         url: 'https://www.cypress.io'
+      }
+    ]
+  },
+  {
+    name: 'WebAssembly',
+    years: {
+      start: 2017
+    },
+    group: 'browsers',
+    links: [
+      {
+        name: 'website',
+        url: 'https://webassembly.org'
+      },
+      {
+        name: 'roadmap',
+        url: 'https://webassembly.org/roadmap/'
       }
     ]
   }
