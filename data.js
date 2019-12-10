@@ -688,5 +688,22 @@ const data = [
         url: 'https://github.com/posthtml/posthtml/graphs/contributors'
       }
     ]
+  },
+  {
+    name: 'WebAssembly',
+    years: {
+      start: 2017
+    },
+    group: 'browsers',
+    links: [
+      {
+        name: 'website',
+        url: 'https://webassembly.org'
+      },
+      {
+        name: 'roadmap',
+        url: 'https://webassembly.org/roadmap/'
+      }
+    ]
   }
 ];
