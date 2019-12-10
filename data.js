@@ -671,8 +671,8 @@ const data = [
     group: 'css-toolkits',
     links: [
       {
-        name: 'postcss',
-        url: 'https://github.com/postcss/postcss'
+        name: 'contributors',
+        url: 'https://github.com/postcss/postcss/graphs/contributors'
       }
     ]
   },
@@ -684,8 +684,8 @@ const data = [
     group: 'html-toolkits',
     links: [
       {
-        name: 'posthtml',
-        url: 'https://github.com/posthtml/posthtml'
+        name: 'contributors',
+        url: 'https://github.com/posthtml/posthtml/graphs/contributors'
       }
     ]
   }
