@@ -646,5 +646,22 @@ const data = [
         url: 'https://github.com/hteumeuleu/caniemail/graphs/contributors'
       }
     ]
+  },
+  {
+    name: 'WebAssembly',
+    years: {
+      start: 2017
+    },
+    group: 'browsers',
+    links: [
+      {
+        name: 'website',
+        url: 'https://webassembly.org'
+      },
+      {
+        name: 'roadmap',
+        url: 'https://webassembly.org/roadmap/'
+      }
+    ]
   }
 ];
