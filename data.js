@@ -714,7 +714,7 @@ const data = [
     years: {
       start: 2016
     },
-    groups: 'tests',
+    group: 'tests',
     links: [
       {
         name: 'contributors',
