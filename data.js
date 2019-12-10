@@ -14,9 +14,6 @@ const groupsData = {
   'css-preprocessors': {
     name: 'CSS preprocessors'
   },
-  'html-toolkits': {
-    name: 'HTML toolkits'
-  },
   'css-toolkits': {
     name: 'CSS toolkits'
   },
@@ -28,6 +25,9 @@ const groupsData = {
   },
   'git': {
     name: 'Git'
+  },
+  'html-toolkits': {
+    name: 'HTML toolkits'
   },
   'js': {
     name: 'JS'
