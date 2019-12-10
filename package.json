@@ -1,0 +1,23 @@
+{
+  "name": "10-years-of-frontend",
+  "version": "0.0.0",
+  "description": "Больше 10 лет фронтенда",
+  "main": "",
+  "scripts": {
+    "lint": "eslint *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-standards-ru/10-years-of-frontend.git"
+  },
+  "keywords": [],
+  "author": "yoksel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/web-standards-ru/10-years-of-frontend/issues"
+  },
+  "homepage": "https://github.com/web-standards-ru/10-years-of-frontend#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2"
+  }
+}
