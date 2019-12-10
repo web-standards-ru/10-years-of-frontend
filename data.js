@@ -649,5 +649,22 @@ const data = [
         url: 'https://github.com/hteumeuleu/caniemail/graphs/contributors'
       }
     ]
+  },
+  {
+    name: 'Jest',
+    years: {
+      start: 2014
+    },
+    group: 'tests',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/facebook/jest/graphs/contributors'
+      },
+      {
+        name: 'site',
+        url: 'https://jestjs.io'
+      }
+    ]
   }
 ];
