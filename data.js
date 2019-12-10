@@ -16,7 +16,7 @@ const groupsData = {
   },
   'html-toolkits': {
     name: 'HTML toolkits'
-  }
+  },
   'css-toolkits': {
     name: 'CSS toolkits'
   },
