@@ -24,6 +24,7 @@ HTML {
   --col-features-detection: blueviolet;
   --col-fonts: crimson;
   --col-git: black;
+  --col-html-toolkits: orchid;
   --col-js: gold;
   --col-linters: olive;
   --col-markup: yellowgreen;
@@ -465,6 +466,17 @@ A:hover {
 .list-data__item--type-browsers,
 .nav-group__control--type-browsers.nav-group__control--active {
   background: var(--col-browsers);
+  color: #FFF;
+}
+
+/* HTML toolkits */
+.nav-group__control--type-html-toolkits {
+  background: #FFF;
+  color: var(--col-html-toolkits);
+}
+.list-data__item--type-html-toolkits,
+.nav-group__control--type-html-toolkits.nav-group__control--active {
+  background: var(--col-html-toolkits);
   color: #FFF;
 }
 
