@@ -666,5 +666,22 @@ const data = [
         url: 'https://jestjs.io'
       }
     ]
+  },
+  {
+    name: 'Cypress',
+    years: {
+      start: 2016
+    },
+    groups: 'tests',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/cypress-io/cypress/graphs/contributors'
+      },
+      {
+        name: 'site',
+        url: 'https://www.cypress.io'
+      }
+    ]
   }
 ];
