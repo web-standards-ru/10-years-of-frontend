@@ -157,6 +157,19 @@ const data = [
     ]
   },
   {
+    name: 'Parcel',
+    years: {
+      start: 2017
+    },
+    group: 'automating',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/parcel-bundler/parcel/graphs/contributors'
+      }
+    ]
+  },
+  {
     name: 'Webpack',
     years: {
       start: 2012
@@ -192,6 +205,19 @@ const data = [
       {
         name: 'contributors',
         url: 'https://github.com/twbs/bootstrap/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'Foundation',
+    years: {
+      start: 2011
+    },
+    group: 'css-toolkits',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/foundation/foundation-sites/graphs/contributors'
       }
     ]
   },
@@ -371,6 +397,19 @@ const data = [
       {
         name: 'github',
         url: 'https://github.com/sergeche/zen-coding'
+      }
+    ]
+  },
+  {
+    name: 'Emmet 2.0',
+    years: {
+      start: 2019
+    },
+    group: 'css-editors-tools',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/emmetio/emmet/graphs/contributors'
       }
     ]
   },
