@@ -240,17 +240,17 @@ const data = [
     ]
   },
   {
-      name: 'Editorconfig',
-      years: {
-        start: 2012
-      },
-      group: 'linters',
-      links: [
-        {
-          name: 'contributors',
-          url: 'https://github.com/editorconfig/editorconfig/graphs/contributors'
-        }
-      ]
+    name: 'Editorconfig',
+    years: {
+      start: 2012
+    },
+    group: 'linters',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/editorconfig/editorconfig/graphs/contributors'
+      }
+    ]
   },
   {
     name: 'Font-face',
@@ -537,10 +537,10 @@ const data = [
     },
     group: 'css-properties',
     links: [
-       {
+      {
         name: 'caniuse',
         url: 'https://caniuse.com/#feat=border-radius'
-       }
+      }
     ]
   },
   {
@@ -550,10 +550,10 @@ const data = [
     },
     group: 'css-properties',
     links: [
-     {
-      name: 'caniuse',
-      url: 'https://caniuse.com/#feat=mdn-css_types_image_gradient_linear-gradient'
-     }
+      {
+        name: 'caniuse',
+        url: 'https://caniuse.com/#feat=mdn-css_types_image_gradient_linear-gradient'
+      }
     ]
   },
   {

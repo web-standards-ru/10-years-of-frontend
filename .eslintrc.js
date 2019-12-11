@@ -13,5 +13,7 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "quotes": ["error", "single"],
+        "indent": ["error", 2]
     }
 };
