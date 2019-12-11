@@ -160,6 +160,19 @@ const data = [
     ]
   },
   {
+    name: 'Parcel',
+    years: {
+      start: 2017
+    },
+    group: 'automating',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/parcel-bundler/parcel/graphs/contributors'
+      }
+    ]
+  },
+  {
     name: 'Webpack',
     years: {
       start: 2012
@@ -195,6 +208,19 @@ const data = [
       {
         name: 'contributors',
         url: 'https://github.com/twbs/bootstrap/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'Foundation',
+    years: {
+      start: 2011
+    },
+    group: 'css-toolkits',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/foundation/foundation-sites/graphs/contributors'
       }
     ]
   },
