@@ -21,6 +21,7 @@ HTML {
   --col-css-properties: teal;
   --col-css-editors-tools: orange;
   --col-css-preprocessors: lightseagreen;
+  --col-css-toolkits: darkslateblue;
   --col-features-detection: blueviolet;
   --col-fonts: crimson;
   --col-git: black;
@@ -29,7 +30,7 @@ HTML {
   --col-linters: olive;
   --col-markup: yellowgreen;
   --col-node: forestgreen;
-  --col-css-toolkits: darkslateblue;
+  --col-tests: mediumvioletred;
 }
 
 BODY {
@@ -477,6 +478,17 @@ A:hover {
 .list-data__item--type-html-toolkits,
 .nav-group__control--type-html-toolkits.nav-group__control--active {
   background: var(--col-html-toolkits);
+  color: #FFF;
+}
+
+/* Tests */
+.nav-group__control--type-tests {
+  background: #FFF;
+  color: var(--col-tests);
+}
+.list-data__item--type-tests,
+.nav-group__control--type-tests.nav-group__control--active {
+  background: var(--col-tests);
   color: #FFF;
 }
 

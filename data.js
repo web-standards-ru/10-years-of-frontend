@@ -41,6 +41,9 @@ const groupsData = {
   'node': {
     name: 'Node'
   },
+  'tests': {
+    name: 'Tests'
+  },
 };
 
 const data = [
@@ -664,6 +667,23 @@ const data = [
     ]
   },
   {
+    name: 'Jest',
+    years: {
+      start: 2014
+    },
+    group: 'tests',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/facebook/jest/graphs/contributors'
+      },
+      {
+        name: 'site',
+        url: 'https://jestjs.io'
+      }
+    ]
+  },
+  {
     name: 'PostCSS',
     years: {
       start: 2013
@@ -686,6 +706,23 @@ const data = [
       {
         name: 'contributors',
         url: 'https://github.com/posthtml/posthtml/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'Cypress',
+    years: {
+      start: 2016
+    },
+    group: 'tests',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/cypress-io/cypress/graphs/contributors'
+      },
+      {
+        name: 'site',
+        url: 'https://www.cypress.io'
       }
     ]
   },
