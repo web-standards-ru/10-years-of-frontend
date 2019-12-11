@@ -401,19 +401,6 @@ const data = [
     ]
   },
   {
-    name: 'Emmet 2.0',
-    years: {
-      start: 2019
-    },
-    group: 'css-editors-tools',
-    links: [
-      {
-        name: 'contributors',
-        url: 'https://github.com/emmetio/emmet/graphs/contributors'
-      }
-    ]
-  },
-  {
     name: 'Hayaku',
     years: {
       start: 2012
