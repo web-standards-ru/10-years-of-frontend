@@ -41,10 +41,7 @@
   fillListByDate({data, listId: 'by-date'});
   fillListByGroup({data});
 
-  navGroups.forEach(navGroup => {
-    let isShown = true;
-    fillNavGroup(navGroup);
-  });
+  navGroups.forEach(fillNavGroup);
 
   addSectionNavActions();
 
