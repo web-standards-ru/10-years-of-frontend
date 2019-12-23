@@ -186,6 +186,19 @@ const data = [
     ]
   },
   {
+    name: 'Browserify',
+    years: {
+      start: 2010
+    },
+    group: 'automating',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/browserify/browserify/graphs/contributors'
+      }
+    ]
+  },
+  {
     name: 'Webpack',
     years: {
       start: 2012
