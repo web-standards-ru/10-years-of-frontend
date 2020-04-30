@@ -308,6 +308,19 @@ const data = [
     ]
   },
   {
+    name: 'prettier',
+    years: {
+      start: 2016
+    },
+    group: 'linters',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/prettier/prettier/graphs/contributors'
+      }
+    ]
+  },
+  {
     name: 'Editorconfig',
     years: {
       start: 2012
