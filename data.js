@@ -74,6 +74,19 @@ const data = [
     ]
   },
   {
+    name: 'GitLab',
+    years: {
+      start: 2011
+    },
+    group: 'git',
+    links: [
+      {
+        name: 'intro',
+        url: 'https://about.gitlab.com/company/history/'
+      }
+    ]
+  },
+  {
     name: 'Node.js',
     years: {
       start: 2009
