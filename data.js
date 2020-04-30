@@ -173,6 +173,32 @@ const data = [
     ]
   },
   {
+    name: 'Rollup',
+    years: {
+      start: 2015
+    },
+    group: 'automating',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/rollup/rollup/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'Browserify',
+    years: {
+      start: 2010
+    },
+    group: 'automating',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/browserify/browserify/graphs/contributors'
+      }
+    ]
+  },
+  {
     name: 'Webpack',
     years: {
       start: 2012
