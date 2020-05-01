@@ -586,6 +586,19 @@ const data = [
     ]
   },
   {
+    name: 'Lodash',
+    years: {
+      start: 2009
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/lodash/lodash/graphs/contributors'
+      }
+    ]
+  },
+  {
     name: 'SVG',
     years: {
       start: 2010
