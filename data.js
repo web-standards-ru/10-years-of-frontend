@@ -74,6 +74,19 @@ const data = [
     ]
   },
   {
+    name: 'GitLab',
+    years: {
+      start: 2011
+    },
+    group: 'git',
+    links: [
+      {
+        name: 'intro',
+        url: 'https://about.gitlab.com/company/history/'
+      }
+    ]
+  },
+  {
     name: 'Node.js',
     years: {
       start: 2009
@@ -291,6 +304,19 @@ const data = [
       {
         name: 'contributors',
         url: 'https://github.com/stylelint/stylelint/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'prettier',
+    years: {
+      start: 2016
+    },
+    group: 'linters',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/prettier/prettier/graphs/contributors'
       }
     ]
   },
@@ -556,6 +582,32 @@ const data = [
       {
         name: 'contributors',
         url: 'https://github.com/sveltejs/svelte/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'Lodash',
+    years: {
+      start: 2009
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/lodash/lodash/graphs/contributors'
+      }
+    ]
+  },
+  {
+    name: 'Express',
+    years: {
+      start: 2009
+    },
+    group: 'js',
+    links: [
+      {
+        name: 'contributors',
+        url: 'https://github.com/expressjs/express/graphs/contributors'
       }
     ]
   },
